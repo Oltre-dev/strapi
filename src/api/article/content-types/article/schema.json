@@ -49,6 +49,9 @@
     },
     "publicationDate": {
       "type": "datetime"
+    },
+    "aa": {
+      "type": "string"
     }
   }
 }
