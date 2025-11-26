@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCommonUrl extends Struct.ComponentSchema {
+  collectionName: 'components_shared_common_urls';
+  info: {
+    displayName: 'Common URL';
+  };
+  attributes: {
+    key: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCta extends Struct.ComponentSchema {
   collectionName: 'components_shared_ctas';
   info: {
@@ -130,6 +143,7 @@ export interface SharedTicketing extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.common-url': SharedCommonUrl;
       'shared.cta': SharedCta;
       'shared.hero': SharedHero;
       'shared.media': SharedMedia;

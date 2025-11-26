@@ -508,6 +508,7 @@ export interface ApiAugmenterConfAugmenterConf extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    common_urls: Schema.Attribute.Component<'shared.common-url', true>;
     content: Schema.Attribute.DynamicZone<
       [
         'shared.ticketing',
@@ -527,6 +528,35 @@ export interface ApiAugmenterConfAugmenterConf extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
+  collectionName: 'global_settings';
+  info: {
+    displayName: 'Global setting';
+    pluralName: 'global-settings';
+    singularName: 'global-setting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    common_url: Schema.Attribute.Component<'shared.common-url', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    default_seo: Schema.Attribute.Component<'shared.seo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-setting.global-setting'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1143,6 +1173,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::augmenter-conf.augmenter-conf': ApiAugmenterConfAugmenterConf;
+      'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::pointer.pointer': ApiPointerPointer;
       'api::tag.tag': ApiTagTag;
       'api::video.video': ApiVideoVideo;

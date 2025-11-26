@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_common_urls",
+  "info": {
+    "displayName": "Common URL"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
