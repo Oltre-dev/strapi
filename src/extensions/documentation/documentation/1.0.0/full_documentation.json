@@ -14,7 +14,7 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
-    "x-generation-date": "2025-11-26T12:06:00.624Z"
+    "x-generation-date": "2025-11-26T12:37:59.167Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -6433,12 +6433,6 @@
           "data": {
             "type": "object",
             "properties": {
-              "common_urls": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/SharedCommonUrlComponent"
-                }
-              },
               "seo": {
                 "$ref": "#/components/schemas/SharedSeoComponent"
               },
@@ -6535,12 +6529,6 @@
           "documentId": {
             "type": "string"
           },
-          "common_urls": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SharedCommonUrlComponent"
-            }
-          },
           "seo": {
             "$ref": "#/components/schemas/SharedSeoComponent"
           },
@@ -6619,12 +6607,6 @@
                 },
                 "documentId": {
                   "type": "string"
-                },
-                "common_urls": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SharedCommonUrlComponent"
-                  }
                 },
                 "seo": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
@@ -6721,20 +6703,6 @@
           },
           "meta": {
             "type": "object"
-          }
-        }
-      },
-      "SharedCommonUrlComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "key": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
           }
         }
       },
@@ -7164,6 +7132,9 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "default_seo"
+            ],
             "type": "object",
             "properties": {
               "default_seo": {
@@ -7233,6 +7204,9 @@
       },
       "GlobalSetting": {
         "type": "object",
+        "required": [
+          "default_seo"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -7370,6 +7344,20 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "SharedCommonUrlComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "key": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
           }
         }
       },

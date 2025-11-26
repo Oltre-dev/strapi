@@ -508,7 +508,6 @@ export interface ApiAugmenterConfAugmenterConf extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    common_urls: Schema.Attribute.Component<'shared.common-url', true>;
     content: Schema.Attribute.DynamicZone<
       [
         'shared.ticketing',
@@ -549,7 +548,8 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    default_seo: Schema.Attribute.Component<'shared.seo', false>;
+    default_seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

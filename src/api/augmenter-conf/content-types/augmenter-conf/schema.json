@@ -11,11 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "common_urls": {
-      "type": "component",
-      "component": "shared.common-url",
-      "repeatable": true
-    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
