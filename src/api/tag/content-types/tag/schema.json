@@ -39,7 +39,7 @@
       "mappedBy": "tags"
     },
     "summary": {
-      "type": "string"
+      "type": "text"
     },
     "summaryCacheKey": {
       "type": "string",
